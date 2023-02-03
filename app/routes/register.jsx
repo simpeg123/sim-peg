@@ -3,16 +3,20 @@ import React, { useState } from 'react';
 import Logo from '../assets/hutahaean-logo.png';
 import { v4 as uuidv4 } from 'uuid';
 import { createClient } from '@supabase/supabase-js';
-import { useSupabaseClient } from '@supabase/auth-helpers-react';
-import { SessionContextProvider } from '@supabase/auth-helpers-react';
+import {
+    useSupabaseClient,
+    SessionContextProvider,
+} from '@supabase/auth-helpers-react';
 import { getEnv } from '~/env.server';
 import { Loader } from 'react-feather';
 
 export const loader = async () => {
-    const supabaseURL = getEnv().SUPABASE_URL;
-    const supabaseAnonKey = getEnv().SUPABASE_ANON_KEY;
-    const baseImageURL = getEnv().SUPABASE_URL_IMAGE_PATH;
-    const apiURL = getEnv().API;
+    const environment = getEnv();
+
+    const supabaseURL = environment.SUPABASE_URL;
+    const supabaseAnonKey = environment.SUPABASE_ANON_KEY;
+    const baseImageURL = environment.SUPABASE_URL_IMAGE_PATH;
+    const apiURL = environment.API;
 
     return {
         apiURL,
@@ -72,7 +76,6 @@ function Register({ baseImageURL, apiURL }) {
         let file = e.target.files[0];
 
         const fileName = name + '-' + uuidv4();
-
         const { error } = await supabase.storage
             .from('images')
             .upload(fileName, file);

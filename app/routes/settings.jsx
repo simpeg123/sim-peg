@@ -1,6 +1,6 @@
 import Sidebar from '~/components/sidebar';
 import { Outlet, useLoaderData } from '@remix-run/react';
-import { createContext, useEffect, useState } from 'react';
+import { createContext, useState } from 'react';
 
 import { requireUserToken, getUserDetails } from '~/lib/session.server';
 import { json } from '@remix-run/node';
@@ -11,11 +11,12 @@ import { SessionContextProvider } from '@supabase/auth-helpers-react';
 export async function loader({ request }) {
     await requireUserToken(request, '/');
     const user = await getUserDetails(request);
+    const environment = getEnv();
 
-    const supabaseURL = getEnv().SUPABASE_URL;
-    const supabaseAnonKey = getEnv().SUPABASE_ANON_KEY;
-    const baseImageURL = getEnv().SUPABASE_URL_IMAGE_PATH;
-    const apiURL = getEnv().API;
+    const supabaseURL = environment.SUPABASE_URL;
+    const supabaseAnonKey = environment.SUPABASE_ANON_KEY;
+    const baseImageURL = environment.SUPABASE_URL_IMAGE_PATH;
+    const apiURL = environment.API;
 
     return json({
         user,
@@ -31,6 +32,7 @@ export const UserContext = createContext();
 export default function Settings() {
     const { user, apiURL, baseImageURL, supabaseURL, supabaseAnonKey } =
         useLoaderData();
+
     const supabase = createClient(supabaseURL, supabaseAnonKey);
 
     const [user_id, setUser_id] = useState(user.user_id);

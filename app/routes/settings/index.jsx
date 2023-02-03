@@ -24,11 +24,11 @@ function Index() {
                     </div>
                 </div>
                 <div className='flex gap-2'>
-                    {/* <Link to='/settings/profile' prefetch='intent'>
+                    <Link to='/settings/profile' prefetch='intent'>
                         <button className='mt-5 btn btn-sm'>
                             Edit Profile
                         </button>
-                    </Link> */}
+                    </Link>
 
                     <Link to='/settings/change-password' prefetch='intent'>
                         <button className='mt-5 btn btn-sm'>
