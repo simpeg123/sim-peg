@@ -16,8 +16,9 @@ export default function Sidebar({
     const activeIconStyle = '';
 
     return (
-        <div className='flex flex-wrap w-full text-white bg-transparent'>
-            <div className='min-h-screen p-3 space-y-8 shadow shadow-xl shadow-white/10 w-52'>
+        // h-screen sticky top-0
+        <div className='flex w-full text-white bg-transparent'>
+            <div className='sticky top-0 h-screen p-3 space-y-8 shadow shadow-xl shadow-white/10 w-52'>
                 <div className=''>
                     <div className='flex flex-col items-center justify-center gap-2'>
                         <div className='avatar online'>

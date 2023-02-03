@@ -3342,6 +3342,10 @@ html {
   position: relative;
 }
 
+.sticky {
+  position: sticky;
+}
+
 .inset-y-0 {
   top: 0px;
   bottom: 0px;
@@ -3353,6 +3357,10 @@ html {
 
 .left-0 {
   left: 0px;
+}
+
+.top-0 {
+  top: 0px;
 }
 
 .m-5 {
@@ -3489,6 +3497,10 @@ html {
 
 .h-\[70vh\] {
   height: 70vh;
+}
+
+.h-screen {
+  height: 100vh;
 }
 
 .min-h-screen {
