@@ -132,7 +132,7 @@ export default function Details() {
                                 type='text'
                                 value={
                                     detailsRekapNonStaff.rekapitulasi
-                                        .tunjangan_kemahalan
+                                        .tunjangan_kemahalan_str
                                 }
                                 placeholder='Type here'
                                 className='w-full max-w-xs input-sm input input-bordered'
@@ -147,7 +147,7 @@ export default function Details() {
                                     detailsRekapNonStaff.rekapitulasi
                                         .tunjangan_perumahan
                                         ? detailsRekapNonStaff.rekapitulasi
-                                              .tunjangan_perumahan
+                                              .tunjangan_perumahan_str
                                         : '-'
                                 }
                                 placeholder='Type here'
@@ -162,7 +162,7 @@ export default function Details() {
                                     detailsRekapNonStaff.rekapitulasi
                                         .tunjangan_jabatan
                                         ? detailsRekapNonStaff.rekapitulasi
-                                              .tunjangan_jabatan
+                                              .tunjangan_jabatan_str
                                         : '-'
                                 }
                                 placeholder='Type here'
@@ -177,7 +177,7 @@ export default function Details() {
                                     detailsRekapNonStaff.rekapitulasi
                                         .tunjangan_lain_pph21
                                         ? detailsRekapNonStaff.rekapitulasi
-                                              .tunjangan_lain_pph21
+                                              .tunjangan_lain_pph21_str
                                         : '-'
                                 }
                                 placeholder='Type here'
