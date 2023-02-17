@@ -21,7 +21,12 @@ export default function Edit() {
     const URL = loaderData.apiURL;
     const [isLoading, setIsLoading] = useState(true);
 
-    const [formData, setFormData] = useState({});
+    const [formData, setFormData] = useState({
+        tunjangan_kemahalan: 0.0,
+        tunjangan_perumahan: 0.0,
+        tunjangan_jabatan: 0.0,
+        tunjangan_lain_pph21: 0.0,
+    });
 
     const editDataRequest = async () => {
         formData.awal_kerja = parseInt(formData.awal_kerja);
@@ -77,7 +82,7 @@ export default function Edit() {
 
     return (
         <div className='ml-5'>
-            <h1 className='my-5 text-xl font-bold'>Tambah Non Staff</h1>
+            <h1 className='my-5 text-xl font-bold'>Edit Non Staff</h1>
             <div className='flex flex-col items-center justify-center w-full space-x-2 space-y-2'>
                 {isLoading ? (
                     <Loader className='animate-spin' />
@@ -87,9 +92,9 @@ export default function Edit() {
                             e.preventDefault();
                             editDataRequest();
                         }}
-                        className='grid grid-cols-2 place-content-center h-[600px] gap-3 p-5 max-w-3xl w-full  rounded-2xl'
+                        className='flex w-full gap-3 p-5 place-content-center rounded-2xl'
                     >
-                        <div className='gap-2 space-y-2 overflow-auto'>
+                        <div class='space-y-3'>
                             <div className='flex flex-col gap-1'>
                                 <span className='text-xs'>Nomor Payroll</span>
                                 <input
@@ -202,7 +207,9 @@ export default function Edit() {
                                     }
                                 />
                             </div>
+                        </div>
 
+                        <div class='space-y-3'>
                             <div className='flex flex-col gap-1'>
                                 <span className='text-xs'>Jenis Kelamin</span>
                                 <select
@@ -328,7 +335,9 @@ export default function Edit() {
                                     <option value='TK/3'>TK/3</option>
                                 </select>
                             </div>
+                        </div>
 
+                        <div class='space-y-3'>
                             <div className='flex flex-col gap-1'>
                                 <span className='text-xs'>Status Kerja</span>
                                 <select
@@ -402,15 +411,13 @@ export default function Edit() {
                             </div>
                         </div>
 
-                        <div className='flex flex-col gap-2'>
+                        <div className='space-y-3'>
                             <div className='flex flex-col gap-1'>
                                 <span className='text-xs'>
                                     Tunjangan Kemahalan
                                 </span>
                                 <input
                                     required={true}
-                                    type='number'
-                                    min={0}
                                     className='w-56 input input-sm input-bordered'
                                     placeholder='50000'
                                     value={formData.tunjangan_kemahalan}
@@ -429,11 +436,13 @@ export default function Edit() {
 
                                 <input
                                     required={true}
-                                    type='number'
-                                    min={0}
                                     className='w-56 input input-sm input-bordered'
                                     placeholder='20000'
-                                    value={formData.tunjangan_perumahan}
+                                    value={
+                                        formData.tunjangan_perumahan
+                                            ? formData.tunjangan_perumahan
+                                            : 0
+                                    }
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,
@@ -448,11 +457,13 @@ export default function Edit() {
                                 </span>
                                 <input
                                     required={true}
-                                    type='number'
-                                    min={0}
                                     className='w-56 input input-sm input-bordered'
                                     placeholder='35000'
-                                    value={formData.tunjangan_jabatan}
+                                    value={
+                                        formData.tunjangan_jabatan
+                                            ? formData.tunjangan_jabatan
+                                            : 0
+                                    }
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,
@@ -468,11 +479,13 @@ export default function Edit() {
                                 </span>
                                 <input
                                     required={true}
-                                    type='number'
-                                    min={0}
                                     className='w-56 input input-sm input-bordered'
                                     placeholder='55000'
-                                    value={formData.tunjangan_lain_pph21}
+                                    value={
+                                        formData.tunjangan_lain_pph21
+                                            ? formData.tunjangan_lain_pph21
+                                            : 0
+                                    }
                                     onChange={(e) =>
                                         setFormData({
                                             ...formData,

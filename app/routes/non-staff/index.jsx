@@ -108,92 +108,88 @@ export default function Index() {
             </div>
 
             <div className='p-2 mx-auto text-gray-100 rounded'>
-                <div className='h-[70vh] overflow-auto'>
-                    <table className='min-w-full text-xs'>
-                        <colgroup>
-                            <col />
-                            <col className='w-40' />
-                            <col className='w-40' />
-                            <col className='w-52' />
-                            <col className='w-40' />
-                        </colgroup>
-                        <thead className='bg-[#312923]'>
-                            <tr className='text-left'>
-                                <th className='p-3'>No Payroll</th>
-                                <th className='p-3'>NIK</th>
-                                <th className='p-3'>Nama</th>
-                                <th className='p-3'>Jabatan</th>
-                                <th className='p-3'>Gaji Pokok</th>
-                                <th className='p-3 text-center'>Aksi</th>
-                            </tr>
-                        </thead>
+                <table className='min-w-full text-xs'>
+                    <colgroup>
+                        <col />
+                        <col className='w-40' />
+                        <col className='w-40' />
+                        <col className='w-52' />
+                        <col className='w-40' />
+                    </colgroup>
+                    <thead className='bg-[#312923]'>
+                        <tr className='text-left'>
+                            <th className='p-3'>No Payroll</th>
+                            <th className='p-3'>NIK</th>
+                            <th className='p-3'>Nama</th>
+                            <th className='p-3'>Jabatan</th>
+                            <th className='p-3'>Gaji Pokok</th>
+                            <th className='p-3 text-center'>Aksi</th>
+                        </tr>
+                    </thead>
 
-                        {isLoading ? (
-                            <Loader className='mx-auto animate-spin' />
-                        ) : (
-                            <tbody>
-                                {filteredDataNonStaff.map((data) => (
-                                    <tr
-                                        key={uuid()}
-                                        className='bg-black hover:bg-[#312923] border-b border-gray-700'
-                                    >
-                                        <td className='p-3 border border-gray-200/10'>
-                                            <p className='font-semibold'>
-                                                {data.no_payroll}
-                                            </p>
-                                        </td>
-                                        <td className='p-3 border border-gray-200/10'>
-                                            <p>{data.nik}</p>
-                                        </td>
-                                        <td className='p-3 border border-gray-200/10'>
-                                            <p>{data.nama}</p>
-                                        </td>
-                                        <td className='p-3 border border-gray-200/10'>
-                                            <p>{data.jabatan}</p>
-                                        </td>
+                    {isLoading ? (
+                        <Loader className='mx-auto animate-spin' />
+                    ) : (
+                        <tbody>
+                            {filteredDataNonStaff.map((data) => (
+                                <tr
+                                    key={uuid()}
+                                    className='bg-black hover:bg-[#312923] border-b border-gray-700'
+                                >
+                                    <td className='p-3 border border-gray-200/10'>
+                                        <p className='font-semibold'>
+                                            {data.no_payroll}
+                                        </p>
+                                    </td>
+                                    <td className='p-3 border border-gray-200/10'>
+                                        <p>{data.nik}</p>
+                                    </td>
+                                    <td className='p-3 border border-gray-200/10'>
+                                        <p>{data.nama}</p>
+                                    </td>
+                                    <td className='p-3 border border-gray-200/10'>
+                                        <p>{data.jabatan}</p>
+                                    </td>
 
-                                        <td className='p-3 border border-gray-200/10 '>
-                                            <p className='text-yellow-400'>
-                                                {data.gaji_pokok_str}
-                                            </p>
-                                        </td>
+                                    <td className='p-3 border border-gray-200/10 '>
+                                        <p className='text-yellow-400'>
+                                            {data.gaji_pokok_str}
+                                        </p>
+                                    </td>
 
-                                        <td className='flex flex-col gap-2 p-3 text-sm text-right w-28'>
-                                            <Link
-                                                to={`/non-staff/details?id=${data.id}&no_payroll=${data.no_payroll}`}
-                                                className='btn btn-xs btn-success'
-                                            >
-                                                Details
-                                            </Link>
-                                            <Link
-                                                to={`/non-staff/edit?id=${data.id}`}
-                                                className='btn btn-xs btn-info'
-                                            >
-                                                <span>Edit</span>
-                                            </Link>
-                                            <button
-                                                onClick={() => {
-                                                    if (
-                                                        confirm(
-                                                            'Are you sure you wish to delete this item?'
-                                                        )
-                                                    ) {
-                                                        deleteDataNonStaff(
-                                                            data.id
-                                                        );
-                                                    }
-                                                }}
-                                                className='btn btn-xs btn-error'
-                                            >
-                                                <span>Delete</span>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        )}
-                    </table>
-                </div>
+                                    <td className='flex flex-col gap-2 p-3 text-sm text-right w-28'>
+                                        <Link
+                                            to={`/non-staff/details?id=${data.id}&no_payroll=${data.no_payroll}`}
+                                            className='btn btn-xs btn-success'
+                                        >
+                                            Details
+                                        </Link>
+                                        <Link
+                                            to={`/non-staff/edit?id=${data.id}`}
+                                            className='btn btn-xs btn-info'
+                                        >
+                                            <span>Edit</span>
+                                        </Link>
+                                        <button
+                                            onClick={() => {
+                                                if (
+                                                    confirm(
+                                                        'Are you sure you wish to delete this item?'
+                                                    )
+                                                ) {
+                                                    deleteDataNonStaff(data.id);
+                                                }
+                                            }}
+                                            className='btn btn-xs btn-error'
+                                        >
+                                            <span>Delete</span>
+                                        </button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    )}
+                </table>
             </div>
         </div>
     );

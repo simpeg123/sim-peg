@@ -74,9 +74,9 @@ export default function Add() {
                         e.preventDefault();
                         addDataRequest();
                     }}
-                    className='grid grid-cols-2 place-content-center h-[600px] gap-3 p-5 max-w-3xl w-full  rounded-2xl'
+                    className='flex w-full gap-3 p-5 mx-auto place-content-center rounded-2xl'
                 >
-                    <div className='gap-2 space-y-2 overflow-auto'>
+                    <div className='space-y-3'>
                         <div className='flex flex-col gap-1'>
                             <span className='text-xs'>Nomor Payroll</span>
                             <input
@@ -189,7 +189,9 @@ export default function Add() {
                                 }
                             />
                         </div>
+                    </div>
 
+                    <div className='space-y-3'>
                         <div className='flex flex-col gap-1'>
                             <span className='text-xs'>Jenis Kelamin</span>
                             <select
@@ -273,9 +275,9 @@ export default function Add() {
 
                         <div className='flex flex-col gap-1'>
                             {/*
-                                Expat L: Expat ini dipekerjakan oleh perusahaan dari negara asalnya, tetapi dipekerjakan di luar negara tersebut.
-                                Expat F: Expat yang dipekerjakan oleh perusahaan asing di negara yang berbeda dari negara asalnya.
-                            */}
+                                    Expat L: Expat ini dipekerjakan oleh perusahaan dari negara asalnya, tetapi dipekerjakan di luar negara tersebut.
+                                    Expat F: Expat yang dipekerjakan oleh perusahaan asing di negara yang berbeda dari negara asalnya.
+                                */}
 
                             <span className='text-xs'>Expat</span>
                             <select
@@ -338,7 +340,9 @@ export default function Add() {
                                 <option value='Tidak Aktif'>Tidak Aktif</option>
                             </select>
                         </div>
+                    </div>
 
+                    <div className='space-y-3'>
                         <div className='flex flex-col gap-1'>
                             <span className='text-xs'>Awal Kerja</span>
                             <input
@@ -394,13 +398,12 @@ export default function Add() {
                         </div>
                     </div>
 
-                    <div className='flex flex-col gap-2'>
+                    <div className='space-y-3'>
                         <div className='flex flex-col gap-1'>
                             <span className='text-xs'>Tunjangan Kemahalan</span>
                             <input
                                 required={true}
-                                type='number'
-                                min={0}
+                                type='text'
                                 className='w-56 input input-sm input-bordered'
                                 placeholder='50000'
                                 value={formData.tunjangan_kemahalan}
@@ -417,8 +420,6 @@ export default function Add() {
 
                             <input
                                 required={true}
-                                type='number'
-                                min={0}
                                 className='w-56 input input-sm input-bordered'
                                 placeholder='20000'
                                 value={formData.tunjangan_perumahan}
@@ -434,8 +435,6 @@ export default function Add() {
                             <span className='text-xs'>Tunjangan Jabatan</span>
                             <input
                                 required={true}
-                                type='number'
-                                min={0}
                                 className='w-56 input input-sm input-bordered'
                                 placeholder='35000'
                                 value={formData.tunjangan_jabatan}
@@ -452,8 +451,6 @@ export default function Add() {
                             <span className='text-xs'>Tunjangan Lain lain</span>
                             <input
                                 required={true}
-                                type='number'
-                                min={0}
                                 className='w-56 input input-sm input-bordered'
                                 placeholder='55000'
                                 value={formData.tunjangan_lain_pph21}

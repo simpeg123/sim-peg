@@ -3467,6 +3467,10 @@ html {
   height: 1rem;
 }
 
+.h-screen {
+  height: 100vh;
+}
+
 .h-12 {
   height: 3rem;
 }
@@ -3489,18 +3493,6 @@ html {
 
 .h-full {
   height: 100%;
-}
-
-.h-\[600px\] {
-  height: 600px;
-}
-
-.h-\[70vh\] {
-  height: 70vh;
-}
-
-.h-screen {
-  height: 100vh;
 }
 
 .min-h-screen {
@@ -3579,10 +3571,6 @@ html {
   max-width: 32rem;
 }
 
-.max-w-3xl {
-  max-width: 48rem;
-}
-
 .flex-shrink-0 {
   flex-shrink: 0;
 }
@@ -3599,10 +3587,6 @@ html {
 
 .grid-cols-1 {
   grid-template-columns: repeat(1, minmax(0, 1fr));
-}
-
-.grid-cols-2 {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
 .grid-cols-3 {
